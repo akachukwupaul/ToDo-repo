@@ -1,0 +1,55 @@
+﻿@* @model List<Todo.Models.ToDo>
+@{
+    ViewData["Title"] = "Index";
+} 
+
+<div class="row">
+    <div class="col-md-2">
+        <form asp-action="Filter" method="post"></form>
+        <div class="mb-3">
+            <label class="form-label">Category</label>
+            <select name="filter" class="form-select"
+                    asp-items="@(new SelectList(ViewBag.Categories,"CategoryId","Name",ViewBag.Filters.CategoryId))">
+                <option value="all">All</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Due:</label>
+            <select name="filter" class="form-select"
+            asp-items="@(new SelectList(ViewBag.DueFilters, "Key", "Value", ViewBag.Filters.Due))">
+            <option value="all">All</option>
+        </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Status:</label>
+            <select name="filter" class="form-select"
+            asp-items="@(new SelectList(ViewBag.Statuses, "StatusId", "Name", ViewBag.Filters.StatusId))">
+            <option value="all">All</option>
+        </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Filter</button>
+        <a asp-action="Index" asp-all-route-id="" class="btn btn-primary">clear</a>
+    </div>
+</div>
+   @*  <div class="col-md-10">
+        <form asp-action="MarkComplete" method="post" asp-all-route-id="@ViewBag.Filters.FilterString">
+            <table class="table table-bordered table-striped at-2">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Due Date</th>
+                        <th>Status</th>
+                        <th class="w-25"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(ToDo task in Model)
+                    {
+                        
+                    }
+                </tbody>
+</table>
+        </form>
+    </div>
+</div> *@
