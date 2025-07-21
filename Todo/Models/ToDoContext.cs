@@ -22,7 +22,7 @@ namespace Todo.Models
             // Seed initial data for Status table
             modelBuilder.Entity<Status>().HasData(
                 new Status { StatusId = "open", Name = "Open" },
-                new Status { StatusId = "close", Name = "Completed" }
+                new Status { StatusId = "closed", Name = "Completed" }
                 );
             // Call base class implementation (optional, but good practice)
             base.OnModelCreating(modelBuilder);
